@@ -10,13 +10,10 @@
         <table class="table table-bordered table-hover table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
                     <th>CNPJ</th>
                     <th>Nome Fantasia</th>
                     <th>Razão Social</th>
-                    <th>Missão</th>
-                    <th>Visão</th>
-                    <th>Funcionários</th>
+                    <th>Opções</th>
 
 
 
@@ -25,12 +22,10 @@
 
             <tbody>
                 <tr *ngFor="let empresa of empresas">
-                    <td> {{ empresa.id }} </td>
                     <td> {{ empresa.cnpj }} </td>
                     <td> {{ empresa.fantasyName }} </td>
                     <td> {{ empresa.corporateName }} </td>
-                    <td> {{ empresa.mission }} </td>
-                    <td> {{ empresa.vision }} </td>
+
                     <td>
                         <button class="btn btn-primary mr-2" (click)="view(empresa.id)">Visualizar</button>
                         <button class="btn btn-dark mr-2" (click)="edit(empresa.id)">Editar</button>

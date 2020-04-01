@@ -1,18 +1,23 @@
 <div class="container" *ngIf="!isLoading else loadingIcon">
     <div class="row">
         <div class="col-md-6 img">
-            <img src="https://cdn.onlinewebfonts.com/svg/img_184513.png"
+            <img src="https://cdn.onlinewebfonts.com/svg/img_455252.png"
                 alt="" class="img-rounded" width="200px">
         </div>
         <div class="col-md-6 details">
+
             <blockquote>
-                <h5>{{empresa.fantasyName}}</h5>
+                <h5>{{empresa.id}}</h5>
                 <h5>{{empresa.cnpj}}</h5>
-                <small><cite title="Source Title">Paraíba, Brazil <i
-                            class="icon-map-marker"></i></cite></small>
+                <h5>{{empresa.fantasyName}}</h5>
+                <h5>{{empresa.corporateName}}</h5>
+                <h5>{{empresa.mission}}</h5>
+                <h5>{{empresa.vision}}</h5>
+                <h5>{{empresa.funcionarios}}</h5>
+
             </blockquote>
             <p>
-                {{empresa.cnpj}} <br>
+                {{empresa.fantasyName}} <br>
             </p>
         </div>
     </div>

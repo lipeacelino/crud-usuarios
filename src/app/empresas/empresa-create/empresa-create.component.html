@@ -4,20 +4,56 @@
 
         <div class="form-row">
             <div class="form-group col-12">
+                <label><strong>CNPJ</strong></label>
+                <input type="text" formControlName="cnpj" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.cnpj.errors }" />
+                <div *ngIf="submitted && form.cnpj.errors" class="invalid-feedback">
+                    <div *ngIf="form.cnpj.errors.required">CNPJ is mandatory</div>
+                </div>
+            </div>
+            <div class="form-group col-12">
                 <label><strong>Nome Fantasia</strong></label>
-                <input type="text" formControlName="name" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && form.name.errors }" />
-                <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
-                    <div *ngIf="form.name.errors.required">Name is mandatory</div>
+                <input type="text" formControlName="fantasyName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.fantasyName.errors }" />
+                <div *ngIf="submitted && form.fantasyName.errors" class="invalid-feedback">
+                    <div *ngIf="form.fantasyName.errors.required">fantasy Name is mandatory</div>
+                    <div *ngIf="form.fantasyName.errors.fantasyName">Must have fantasyName format</div>
+                </div>
+            </div>
+            <div class="form-group col-12">
+                <label><strong>Razão Social</strong></label>
+                <input type="text" formControlName="corporateName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.corporateName.errors }" />
+                <div *ngIf="submitted && form.corporateName.errors" class="invalid-feedback">
+                    <div *ngIf="form.corporateName.errors.required">corporateName is mandatory</div>
+                    <div *ngIf="form.corporateName.errors.corporateName">Must have corporateName format</div>
+                </div>
+            </div>
+            <div class="form-group col-12">
+                <label><strong>Missão</strong></label>
+                <input type="text" formControlName="mission" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.mission.errors }" />
+                <div *ngIf="submitted && form.mission.errors" class="invalid-feedback">
+                    <div *ngIf="form.mission.errors.required">mission is mandatory</div>
+                    <div *ngIf="form.mission.errors.mission">Must have mission format</div>
                 </div>
             </div>
             <div class="form-group col-12">
                 <label><strong>Visão</strong></label>
-                <input type="text" formControlName="email" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
-                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
-                    <div *ngIf="form.email.errors.required">Email is mandatory</div>
-                    <div *ngIf="form.email.errors.email">Must have email format</div>
+                <input type="text" formControlName="vision" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.vision.errors }" />
+                <div *ngIf="submitted && form.vision.errors" class="invalid-feedback">
+                    <div *ngIf="form.vision.errors.required">vision is mandatory</div>
+                    <div *ngIf="form.vision.errors.vision">Must have vision format</div>
+                </div>
+            </div>
+            <div class="form-group col-12">
+                <label><strong>Funcionarios</strong></label>
+                <input type="text" formControlName="funcionarios" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.funcionarios.errors }" />
+                <div *ngIf="submitted && form.funcionarios.errors" class="invalid-feedback">
+                    <div *ngIf="form.funcionarios.errors.required">funcionarios is mandatory</div>
+                    <div *ngIf="form.funcionarios.errors.funcionarios">Must have funcionarios format</div>
                 </div>
             </div>
         </div>

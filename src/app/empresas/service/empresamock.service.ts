@@ -8,9 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class EmpresaMockService implements IEmpresaService {
 
-    empresas: EmpresaDTO[];
-
-    lastId: number;
+    empresas: EmpresaDTO[] = [new EmpresaDTO(
+        1,
+        'xx.xxx.xxx/xxxx-xx',
+        'Sesi',
+        'Sesi Academia',
+        'Sesi Parque da Mata',
+        'S.E.S.I - RT',
+        []
+        )];
+    lastId = 1;
 
     list(): Observable<any> {
         return new Observable<any>(
@@ -32,7 +39,7 @@ export class EmpresaMockService implements IEmpresaService {
     }
     update(empresa: EmpresaDTO): Observable<any> {
         let oldEmpresa = this.empresas
-        .filter(empresa => empresa.id == empresa.id)
+        .filter(empresa => empresa.id === empresa.id)
         .pop();
 
         Object.assign(oldEmpresa, empresa);
@@ -71,8 +78,6 @@ export class EmpresaMockService implements IEmpresaService {
     }
 
     constructor() {
-        this.empresas = [new EmpresaDTO(1,
-            'Sesi', 'xx.xxx.xxx/xxxx-xx', 'Sesi Academia', 'Sesi Parque da Mata', 'S.E.S.I - RT', null)];
-        this.lastId = 0;
+
     }
 }

@@ -13,7 +13,13 @@ import { UsuariosEditComponent } from './usuarios-edit/usuarios-edit.component';
 
 
 @NgModule({
-  declarations: [UsuariosComponent, UsuariosListComponent, UsuarioCreateComponent, UsuariosViewComponent, UsuariosEditComponent],
+  declarations:
+  [
+    UsuariosComponent,
+    UsuariosListComponent,
+    UsuarioCreateComponent,
+    UsuariosViewComponent,
+    UsuariosEditComponent],
   imports: [
     CommonModule,
     UsuariosRoutingModule,

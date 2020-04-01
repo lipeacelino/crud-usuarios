@@ -23,7 +23,7 @@ export class EmpresasEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id: number = +this.activatedRoute.snapshot.paramMap.get("id");
+    const id: number = +this.activatedRoute.snapshot.paramMap.get('id');
     this.service.getById(id).subscribe((result) => {
         this.empresa = result;
         this.isLoading = false;
@@ -37,15 +37,19 @@ export class EmpresasEditComponent implements OnInit {
 generateForm() {
     this.formGroup = this.formBuilder.group(
         {
-            name: [this.empresa.cnpj, [Validators.required]],
-            fantasyName: [this.empresa.fantasyName, [Validators.required, Validators.email]],
+            cnpj: [this.empresa.cnpj, [Validators.required]],
+            fantasyName: [this.empresa.fantasyName, [Validators.required]],
+            corporateName: [this.empresa.corporateName, [Validators.required]],
+            mission: [this.empresa.mission, [Validators.required]],
+            vision: [this.empresa.vision, [Validators.required]],
+            funcionarios: [this.empresa.funcionarios, []],
         }
     );
 }
 
 onSubmit() {
     this.submitted = true;
-    if(this.submitted && this.formGroup.invalid) {
+    if (this.submitted && this.formGroup.invalid) {
         return;
     }
 

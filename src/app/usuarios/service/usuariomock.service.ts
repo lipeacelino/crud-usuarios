@@ -64,7 +64,7 @@ export class UsuarioMockService implements IUsuarioService {
                 aux.push(user);
             }
         });
-        this.usuarios = aux;        
+        this.usuarios = aux;
         return new Observable<any>(
             (obs) => {
                 obs.next(true);

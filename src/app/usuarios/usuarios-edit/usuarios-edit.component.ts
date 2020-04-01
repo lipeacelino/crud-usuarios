@@ -51,7 +51,10 @@ export class UsuariosEditComponent implements OnInit {
             return;
         }
 
-        const auxUser = new UsuarioDTO(this.usuario.id, this.form["name"].value, this.form["email"].value)
+        const auxUser = new UsuarioDTO(
+            this.usuario.id,
+            this.form["name"].value,
+            this.form["email"].value)
 
         this.service.update(auxUser).subscribe((result) => {
             this.router.navigate(["usuarios", "view", this.usuario.id]);

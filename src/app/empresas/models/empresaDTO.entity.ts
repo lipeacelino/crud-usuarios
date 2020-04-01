@@ -22,6 +22,7 @@ export class EmpresaDTO {
       this.id = id;
       this.cnpj = cnpj;
       this.fantasyName = fantasyName;
+      this.corporateName = corporateName;
       this.mission = mission;
       this.vision = vision;
       this.funcionarios = funcionarios;

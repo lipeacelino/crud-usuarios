@@ -48,13 +48,19 @@
                 </div>
             </div>
             <div class="form-group col-12">
-                <label><strong>Funcionarios</strong></label>
-                <input type="text" formControlName="funcionarios" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && form.funcionarios.errors }" />
-                <div *ngIf="submitted && form.funcionarios.errors" class="invalid-feedback">
-                    <div *ngIf="form.funcionarios.errors.required">funcionarios is mandatory</div>
-                    <div *ngIf="form.funcionarios.errors.funcionarios">Must have funcionarios format</div>
-                </div>
+                <label>
+                    <strong>Alocar Funcionários</strong>
+                </label>              
+                <ng-select [items]="users"
+                    bindLabel="name" 
+                    bindValue="id" 
+                    [multiple]="true"
+                    [closeOnSelect]="false"
+                    placeholder="Selecione Funcionários"
+                    [(ngModel)]="selectedUsersId"
+                    formControlName="funcionarios" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.funcionarios.errors }" ng-options="user for user in users" multiple>
+                </ng-select>
             </div>
         </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from '../service/empresa.service';
 import { EmpresaDTO } from '../models/empresaDTO.entity';
 import { Router } from '@angular/router';
+import { ConfirmDialogService } from './confirm-dialog.service';
 
 @Component({
   selector: 'app-empresas-list',
@@ -12,7 +13,9 @@ export class EmpresasListComponent implements OnInit {
   loading = true;
   empresas: EmpresaDTO[] = [];
 
-  constructor(private service: EmpresaService, private router: Router) { }
+  constructor(private service: EmpresaService,
+              private router: Router,
+              private confirmationDialogService: ConfirmDialogService) { }
 
   ngOnInit() {
     this.list();
@@ -45,5 +48,10 @@ export class EmpresasListComponent implements OnInit {
 
   edit(id: number) {
     this.router.navigate(['empresas', 'edit', id]);
+  }
+  openConfirmationDialog() {
+    this.confirmationDialogService.confirm('Por favor, confirme...', 'Quer realmente apagar... ?')
+    .then((confirmed) => console.log('User confirmed:', confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
 }

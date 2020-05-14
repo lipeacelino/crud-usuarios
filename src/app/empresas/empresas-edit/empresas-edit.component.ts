@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from '../service/empresa.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EmpresaDTO } from '../models/empresaDTO.entity';
-
+import { UsuarioDTO } from 'src/app/usuarios/models/usuarioDTO.entity';
+import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 @Component({
   selector: 'app-empresas-edit',
   templateUrl: './empresas-edit.component.html',
@@ -11,8 +12,8 @@ import { EmpresaDTO } from '../models/empresaDTO.entity';
 })
 export class EmpresasEditComponent implements OnInit {
   private formGroup: FormGroup;
-  private submitted: boolean = false;
-  private isLoading: boolean = true;
+  private submitted = false;
+  private isLoading = true;
   private empresa: EmpresaDTO;
 
   constructor(
@@ -22,6 +23,8 @@ export class EmpresasEditComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
+
+  selectedUsersId: any;
   ngOnInit() {
     const id: number = +this.activatedRoute.snapshot.paramMap.get('id');
     this.service.getById(id).subscribe((result) => {

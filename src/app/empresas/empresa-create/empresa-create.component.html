@@ -48,13 +48,26 @@
                 </div>
             </div>
             <div class="form-group col-12">
-                <label><strong>Funcionarios</strong></label>
-                <input type="text" formControlName="funcionarios" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && form.funcionarios.errors }" />
+                
+                <label for="funcionarios">
+                    <strong>Funcionários: </strong>
+                </label>
+                
+                <select id="cars" formControlName="funcionarios" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && form.funcionarios.errors }" multiple>
+                    <label for="cars">Choose a car:</label>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                </select>
+
                 <div *ngIf="submitted && form.funcionarios.errors" class="invalid-feedback">
+                    <label for="cars">Choose a car:</label>
                     <div *ngIf="form.funcionarios.errors.required">funcionarios is mandatory</div>
                     <div *ngIf="form.funcionarios.errors.funcionarios">Must have funcionarios format</div>
                 </div>
+
             </div>
         </div>
 

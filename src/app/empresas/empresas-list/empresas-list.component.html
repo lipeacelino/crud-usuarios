@@ -26,10 +26,10 @@
                     <td> {{ empresa.fantasyName }} </td>
                     <td> {{ empresa.corporateName }} </td>
 
-                    <td>
+                    <td>                     
                         <button class="btn btn-primary mr-2" (click)="view(empresa.id)">Visualizar</button>
                         <button class="btn btn-dark mr-2" (click)="edit(empresa.id)">Editar</button>
-                        <button class="btn btn-danger" (click)="delete(empresa.id)" href="#"> Deletar </button>
+                        <button class="btn btn-danger" (click)="openConfirmationDialog()" href="#"> Deletar </button>
                     </td>
                 </tr>
             </tbody>

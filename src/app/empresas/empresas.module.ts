@@ -9,8 +9,10 @@ import { EmpresasViewComponent } from './empresas-view/empresas-view.component';
 import { EmpresasListComponent } from './empresas-list/empresas-list.component';
 import { EmpresaService } from './service/empresa.service';
 import { EmpresaMockService } from './service/empresamock.service';
-
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ConfirmDialogComponent } from './empresas-list/confirm-dialog.component';
+import { ConfirmDialogService } from './empresas-list/confirm-dialog.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,18 +20,22 @@ import { EmpresaMockService } from './service/empresamock.service';
     EmpresasListComponent,
     EmpresasViewComponent,
     EmpresasEditComponent,
-    EmpresasComponent],
+    EmpresasComponent,
+    ConfirmDialogComponent],
   imports: [
     CommonModule,
     EmpresasRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
+    NgbModule
   ],
-  providers: [
+  providers: [ConfirmDialogService,
     {
         provide: EmpresaService,
         useClass: EmpresaMockService
     },
-]
+],
+  entryComponents: [ ConfirmDialogComponent ]
 })
 export class EmpresasModule { }
